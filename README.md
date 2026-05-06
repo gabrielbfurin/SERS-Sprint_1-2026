@@ -212,10 +212,12 @@ A FIAP, como instituição comprometida com a sustentabilidade, possui um **EV C
 ---
 
 ## Equipe
-
+```
 | Nome | RM |
-| Gabriel Barbosa Furin | 572941
-| Gabriel de Almeida Santos | 569395
-| Herbert Soares de Jesus | 571507 
-| Lucas Kiodi Moraca | 571004 
-| Renan Fracalossi Mano da Silva | 569610
+|--------|-----------|--------|
+| Gabriel Barbosa Furin | 572941 |
+| Gabriel de Almeida Santos | 569395 |
+| Herbert Soares de Jesus | 571507 |
+| Lucas Kiodi Moraca | 571004 |
+| Renan Fracalossi Mano da Silva | 569610 |
+```
