@@ -56,33 +56,33 @@ Esses problemas resultam em:
 ### Arquitetura
 
 ```
-┌─────────────────────────────────────────────────────┐
-│           INFRAESTRUTURA DE ELETROPOSTOS             │
-│                                                     │
-│  ☀️ Painel Solar (GoodWe)                           │
-│       │                                             │
-│       ▼                                             │
-│  🔧 Inversor GoodWe ──────────┐                    │
-│  (MODBUS/REST)                │                    │
-│                               │                    │
-│  🔌 Carregador 1 ─────┐      │                    │
-│  🔌 Carregador 2 ─────├─ OCPP ─┐                  │
-│  🔌 Carregador N ─────┘        │                  │
-│                               ▼                    │
-│                    🧠 ChargeGrid Intelligence      │
-│                    (Backend Python/Docker)         │
-│                               │                    │
-│          ┌────────────────────┼────────────────┐   │
-│          │                    │                │   │
-│          ▼                    ▼                ▼   │
-│    📊 Tarifação      💳 Pagamento      📡 Monitoramento
-│    (Registro de      (Gateway)         (Dashboard)
-│     Sessão)                                       │
-│          │                    │                │   │
-│          └────────────────────┼────────────────┘   │
-│                               │                    │
-│                    🚗 Usuário Final                │
-└─────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────┐
+│           INFRAESTRUTURA DE ELETROPOSTOS               │
+│                                                        │
+│     Painel Solar (GoodWe)                              │
+│       │                                                │
+│       ▼                                                │
+│     Inversor GoodWe ──────────┐                        |
+│  (MODBUS/REST)                │                        │
+│                               │                        │
+│      Carregador 1 ─────┐      │                        │
+│      Carregador 2 ─────├─ OCPP ─┐                      │
+│      Carregador N ─────┘        │                      │
+│                                 ▼                      │
+│                    ChargeGrid Intelligence             │
+│                        (Backend Python)                │
+│                               │                        │
+│          ┌────────────────────┼────────────────┐       │
+│          │                    │                │       │
+│          ▼                    ▼                ▼       │
+│    Tarifação              Pagamento       Monitoramento|
+│    (Registro de           (Gateway)        (Dashboard) |
+│     Sessão)                   |                |       │
+│          │                    │                │       │
+│          └────────────────────┼────────────────┘       │
+│                               │                        │
+│                         Usuário Final                  │
+└────────────────────────────────────────────────────────┘
 ```
 
 ### Fluxo de Operação
@@ -106,20 +106,13 @@ Esses problemas resultam em:
 | **Integração de Energia** | MODBUS / GoodWe REST API | Leitura de potência e energia solar |
 | **Backend** | Python 3.x | Lógica de controle e orquestração |
 | **Autenticação** | Lógica Booleana (RFID + Pagamento + Cabo) | Segurança física do sistema |
-| **Banco de Dados** | PostgreSQL / SQLite | Armazenamento de sessões e histórico |
-| **Comunicação** | WebSocket + JSON / REST API | Protocolo de dados |
 | **Tarifação** | Sistema de Pricing Dinâmico | Cobrança por modelo selecionado |
-| **Containerização** | Docker + Docker Compose | Implantação e escalabilidade |
 | **Monitoramento** | Análise de Dados Estatística | Insights sobre uso e demanda |
 
 ### Por que essas tecnologias?
 
 - **OCPP**: Padrão aberto que funciona com 90% dos carregadores do mercado
 - **Python**: Ideal para prototipagem rápida e machine learning
-- **Docker**: Facilita deployment em qualquer servidor
-- **PostgreSQL**: Robustez para dados críticos de faturamento
-- **WebSocket**: Comunicação em tempo real com baixa latência
-
 ---
 
 ## Pilares Técnicos
@@ -215,65 +208,6 @@ A FIAP, como instituição comprometida com a sustentabilidade, possui um **EV C
 - Gestão eficiente de energia
 - Inovação em tecnologia verde
 - Educação prática em sistemas inteligentes
-
----
-
-## Como Executar
-
-### Pré-requisitos
-
-- Python 3.8+
-- Docker e Docker Compose
-- PostgreSQL (ou SQLite para desenvolvimento)
-- Git
-
-### Instalação
-
-```bash
-# 1. Clonar o repositório
-git clone https://github.com/gabrielbfurin/SERS-Sprint_1-2026
-
-# 2. Configurar variáveis de ambiente
-cp .env.example .env
-# Editar .env com:
-# - OCPP_SERVER_URL
-# - GOODWE_API_KEY
-# - DATABASE_URL
-# - PAYMENT_GATEWAY_KEY
-
-# 3. Executar com Docker
-docker-compose up -d
-
-# 4. Inicializar banco de dados
-docker-compose exec web python manage.py migrate
-
-# 5. Acessar dashboard
-# http://localhost:8000
-```
-
----
-
-## Estrutura do Projeto
-
-```
-SERS-Sprint_1-2026/
-├── backend/
-│   ├── chargeGrid/
-│   │   ├── auth.py           # Lógica booleana de autenticação
-│   │   ├── dlm.py            # Controle de demanda
-│   │   ├── ocpp_handler.py    # Integração OCPP
-│   │   ├── tarifacao.py       # Sistema de tarifação
-│   │   └── analytics.py       # Análise estatística
-│   ├── requirements.txt
-│   └── Dockerfile
-├── docs/
-│   ├── Sprint_1_Computer_Science_Final.txt
-│   ├── ChargeGrid_Fase2_Fase3.txt
-│   └── arquitetura.md
-├── docker-compose.yml
-├── .env.example
-└── README.md
-```
 
 ---
 
