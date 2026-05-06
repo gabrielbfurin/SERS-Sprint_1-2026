@@ -279,41 +279,9 @@ SERS-Sprint_1-2026/
 
 ## Equipe
 
-| Nome | RM | Função |
-|------|----|--------|
-| [Nome 1] | [RM] | Desenvolvimento & GitHub |
-| [Nome 2] | [RM] | Pesquisa & Apresentação |
-| [Nome 3] | [RM] | (se aplicável) |
-| [Nome 4] | [RM] | (se aplicável) |
-| [Nome 5] | [RM] | (se aplicável) |
-
----
-
-## Documentação Adicional
-
-- **Sprint 1 - Lógica Digital**: `docs/Sprint_1_Computer_Science_Final.txt`
-- **Sprint 6 - Problemas e Soluções**: `docs/ChargeGrid_Fase2_Fase3.txt`
-- **Sprint 4 - Análise Estatística**: `docs/analise_dados.md`
-
----
-
-## Critérios de Avaliação
-
-### Clareza da Proposta (até 40 pontos)
-- Problema bem definido: ausência de automação em eletropostos comerciais
-- Solução clara: plataforma de gestão centralizada
-- Conceitos de sustentabilidade aplicados: integração com energia solar e eficiência energética
-
-### Fundamentação Técnica (até 30 pontos)
-- Protocolos reais: OCPP, MODBUS, OCPI
-- Arquitetura escalável: microsserviços e APIs
-- Integração com GoodWe: APIs e hardware reais
-
-### Organização do Repositório (até 30 pontos)
-- README completo e estruturado
-- Documentação técnica
-- Arquivos organizados por fase
-
----
-
-*EV Challenge 2026 — Sprint 1 | Entrega: 09/05/2026*
+| Nome | RM |
+| Gabriel Barbosa Furin | 572941
+| Gabriel de Almeida Santos | 569395
+| Herbert Soares de Jesus | 571507 
+| Lucas Kiodi Moraca | 571004 
+| Renan Fracalossi Mano da Silva | 569610
